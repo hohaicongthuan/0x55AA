@@ -1,4 +1,4 @@
-module RGB-Greyscale-Converter(En_i, Clk, RGB_i, Y_o);
+module RGB_Greyscale_Converter(En_i, Clk, RGB_i, Y_o);
     input En_i, Clk;
     input [95:0] RGB_i;
     output [31:0] Y_o;
