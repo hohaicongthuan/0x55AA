@@ -12,7 +12,7 @@ module Testbench();
     reg     [95:0] data_i;
     wire    [31:0] data_o;
     
-    reg [127:0] InImage [127:0];
+    reg [95:0] InImage [2499999:0];
 
     initial begin
       Clk = 1'b0; // Initial value of the clock signal
@@ -20,16 +20,16 @@ module Testbench();
   end
     
     initial begin
-        outfile = $fopen("Output.txt", "w");
+        outfile = $fopen("bitmap.out", "w");
         start = 1'b0;
-        $readmemb("Input.txt", InImage);
+        $readmemh("bitmap.in", InImage);
 
-        for (i = 0; i < 128; i = i + 1) begin
+        for (i = 0; i < 2500000; i = i + 1) begin
             data_i = InImage[i];
             #clocktime;
             start = 1'b0;
             #waittime;
-            $fdisplay(outfile, "%b", data_o);
+            $fdisplay(outfile, "%h", data_o);
         end
 
         $fclose(outfile);
