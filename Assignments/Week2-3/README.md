@@ -17,12 +17,24 @@ RGB[A] to Grey: ```Y ← 0.299 × R + 0.587 × G + 0.114 × B```
 ## 3. Plan
 
 ### 3.1. Python
-- [ ] Image to Bitmap Text Converter
-- [ ] Bitmap Text to Image Converter
+- [x] Image to Bitmap Text Converter
+- [x] Bitmap Text to Image Converter
 - [ ] RGB ⇌ Greyscale Converter
 - [ ] Images comparator
 
 ### 3.2. Verilog
-- [ ] Floating-point adder
-- [ ] Floating-point multiplier
-- [ ] RGB ⇌ Greyscale Converter
+- [x] Floating-point adder
+- [x] Floating-point multiplier
+- [x] RGB ⇌ Greyscale Converter
+- [x] Testbench
+
+## 4. Image
+The image we use (500 px × 500 px):
+
+![Chess Artwork](src/chess.jpg)
+
+## 5. Results
+(TODO)
+![](src/chess_out.jpg) | ![](src/chess_image_editor.jpg)
+:---------------------:|:-------------------------------:
+Result from Verilog    | Result from an image editor (GIMP)

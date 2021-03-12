@@ -3,37 +3,43 @@
  `timescale 1ns/1ps
 
 module Testbench();
-    parameter   waittime  = 10;
+    parameter   waittime  = 20;
     parameter   clocktime = 10;
     parameter   DATAWIDTH = 32;
-    integer     i, outfile;
+    integer     i, outfile, infile;
 
     reg     Clk, En_i;
     reg     [95:0] data_i;
     wire    [31:0] data_o;
-    
-    reg [95:0] InImage [2499999:0];
 
     initial begin
-      Clk = 1'b0; // Initial value of the clock signal
-      forever #clocktime Clk = ~Clk; // Generates clock pulses forever
-  end
+        Clk = 1'b0; // Initial value of the clock signal
+        forever #clocktime Clk = ~Clk; // Generates clock pulses forever
+    end
     
     initial begin
         outfile = $fopen("bitmap.out", "w");
-        start = 1'b0;
-        $readmemh("bitmap.in", InImage);
+        infile = $fopen("bitmap.in", "r");
+        En_i = 1'b0;
+        // $readmemh("bitmap.in", InImage);
 
-        for (i = 0; i < 2500000; i = i + 1) begin
-            data_i = InImage[i];
-            #clocktime;
-            start = 1'b0;
+        // read the contents of the file bitmap.in as hexadecimal values into register "data_i".
+        while (! $feof(infile)) begin       // read until an "end of file" is reached.
+            $fscanf(infile,"%h\n", data_i); // scan each line and get the value as an hexadecimal
+
             #waittime;
+            En_i = 1'b1;
+            #waittime;
+            En_i = 1'b0;
+            #waittime;
+
             $fdisplay(outfile, "%h", data_o);
         end
-
+        
+        #waittime;
         $fclose(outfile);
-        #2000 $finish;
+        #waittime;
+        $finish;
     end
 
     RGB_Greyscale_Converter RGB_Greyscale_Converter_Inst0(

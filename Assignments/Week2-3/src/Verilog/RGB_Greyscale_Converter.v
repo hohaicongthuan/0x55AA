@@ -11,7 +11,7 @@ module RGB_Greyscale_Converter(En_i, Clk, RGB_i, Y_o);
     parameter GreenFactor   = 32'h3F1645A2;
     parameter BlueFactor    = 32'h3DE978D5;
 
-    assign Red      = RGB_i[95:63];
+    assign Red      = RGB_i[95:64];
     assign Green    = RGB_i[63:32];
     assign Blue     = RGB_i[31:0];
 
