@@ -34,7 +34,13 @@ The image we use (500 px × 500 px):
 ![Chess Artwork](src/chess.jpg)
 
 ## 5. Results
-(TODO)
-![Result from Verilog](src/chess_out.jpg) | ![]() (N/A)
-:---------------------:|:-------------------------------:
-Result from Verilog    | Result from Python (N/A)
+
+![Result from Verilog](src/verilog_out.jpg) | ![Result from Python](src/Python/python_out.jpg) | ![Difference](src/Python/compareimg.png)
+:-:|:-:|:-:
+Result from Verilog | Result from Python | Difference
+
+## 6. How to use?
+
+Put an input image in the `src` folder and navigate the terminal there. Use the command `./run -i <image_name>` to run.
+
+Type `./run -h` or `./run --help` for more information on how to use.

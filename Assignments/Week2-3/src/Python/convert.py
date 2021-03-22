@@ -1,8 +1,9 @@
 import cv2 as cv
 import numpy as np
+import sys
 
 # Read picture
-pic = cv.imread("picture.png")
+pic = cv.imread("../" + str(sys.argv[1]))
 
 
 pic_width = pic.shape[0]
@@ -34,11 +35,4 @@ for i in range(pic_height):
         # Gán tất cả 3 channel cùng một giá trị grey
         grey[i, j] = (temp, temp, temp)
 
-
-cv.imshow ("color pic", pic)   
-cv.imwrite ("python.png",grey)                 
-cv.imshow("Picture after format", grey)
-cv.waitKey()
-cv.destroyAllWindows()
-pic.release()
-grey.release()
+cv.imwrite ("python_out.jpg",grey)                 

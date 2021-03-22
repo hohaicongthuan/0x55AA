@@ -4,15 +4,20 @@ import numpy
 from codecs import decode
 import struct
 
+import sys
+
 def float_to_hex(f):
     return hex(struct.unpack('<I', struct.pack('<f', f))[0])
 
-img = cv.imread('chess.jpg')
+img = cv.imread(str(sys.argv[1]))
 img_width = img.shape[0]
 img_height = img.shape[1]
 
-# print(img_width)
-# print(img_height)
+# Save image's dimension in a different file
+f = open("bitmap.meta", "w")
+f.write(str(img_width) + "\n")
+f.write(str(img_height))
+f.close()
 
 i = 0
 j = 0
