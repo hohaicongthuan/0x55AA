@@ -35,6 +35,6 @@ The image we use (500 px × 500 px):
 
 ## 5. Results
 (TODO)
-![](src/chess_out.jpg) | ![](src/chess_image_editor.jpg)
+![Result from Verilog](src/chess_out.jpg) | ![]() (N/A)
 :---------------------:|:-------------------------------:
-Result from Verilog    | Result from an image editor (GIMP)
+Result from Verilog    | Result from Python (N/A)
