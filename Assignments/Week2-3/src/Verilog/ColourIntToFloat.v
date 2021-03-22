@@ -2,8 +2,8 @@
 // to a corresponding [0 - 1] single-precision floating-point scale
 
 module ColourIntToFloat(data_i, data_o);
-    input   [7:0] data_i;
-    output  [31:0] data_o;
+    input      [7:0] data_i;
+    output reg [31:0] data_o;
 
     always @ (data_i) begin
         case (data_i)
@@ -262,7 +262,7 @@ module ColourIntToFloat(data_i, data_o);
         8'hfc: data_o = 32'h3f7cfcfd;
         8'hfd: data_o = 32'h3f7dfdfe;
         8'hfe: data_o = 32'h3f7efeff;
-        default: 8'h00: data_o = 32'h00000000;
+        default: data_o = 32'h00000000;
         endcase
     end
 endmodule
