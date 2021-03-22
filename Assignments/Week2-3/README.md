@@ -19,8 +19,8 @@ RGB[A] to Grey: ```Y ← 0.299 × R + 0.587 × G + 0.114 × B```
 ### 3.1. Python
 - [x] Image to Bitmap Text Converter
 - [x] Bitmap Text to Image Converter
-- [ ] RGB ⇌ Greyscale Converter
-- [ ] Images comparator
+- [x] RGB ⇌ Greyscale Converter
+- [x] Images comparator
 
 ### 3.2. Verilog
 - [x] Floating-point adder
