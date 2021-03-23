@@ -38,3 +38,4 @@ for i in range(img_height):
 # Write image
 cv.imwrite("verilog_out.jpg", blank_image)
 f.close()
+f2.close()

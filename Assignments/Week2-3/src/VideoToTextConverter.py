@@ -5,10 +5,12 @@ import numpy as np
 from codecs import decode
 import struct
 
+import sys
+
 def float_to_hex(f):
     return hex(struct.unpack('<I', struct.pack('<f', f))[0])
 
-video = cv.VideoCapture("PCB-video.mkv")
+video = cv.VideoCapture(str(sys.argv[1]))
 
 # Check if the video is opened successfully
 if (video.isOpened() == False):
@@ -16,6 +18,11 @@ if (video.isOpened() == False):
 
 frame_width = int(video.get(3))
 frame_height = int(video.get(4))
+
+f = open("video.meta", "w")
+f.write(str(frame_width) + "\n")
+f.write(str(frame_height))
+f.close()
 
 while (video.isOpened()):
     ret, frame = video.read()

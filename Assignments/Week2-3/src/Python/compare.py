@@ -6,13 +6,16 @@ imgveri = cv.imread("../verilog_out.jpg")
 imgpython = cv.imread("python_out.jpg")
 origin = cv.imread("../" + str(sys.argv[1]))
 
-cv.imshow("Original Image", origin)
-cv.imshow("Result from Verilog", imgveri)
-cv.imshow("Result from Python", imgpython)
-
 compareimg = cv.absdiff(imgveri, imgpython)
-cv.imshow("Results Difference", compareimg)
 cv.imwrite("compareimg.png", compareimg)
 
-cv.waitKey()
+while (True):
+    cv.imshow("Original Image", origin)
+    cv.imshow("Result from Verilog", imgveri)
+    cv.imshow("Result from Python", imgpython)
+    cv.imshow("Results Difference", compareimg)
+
+    if (cv.waitKey(1) & 0xFF == 27):
+        break
+
 cv.destroyAllWindows()
