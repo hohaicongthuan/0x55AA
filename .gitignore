@@ -1,7 +1,4 @@
 .directory
-Assignments/Week2-3/src/Verilog/work
-Assignments/Week2-3/src/Verilog/transcript
-Assignments/Week2-3/src/video.in
-Assignments/Week2-3/src/Verilog/*.bak
+Assignments/Week2-3/**/*.bak
 Assignments/**/bitmap.in
 Assignments/**/bitmap.out

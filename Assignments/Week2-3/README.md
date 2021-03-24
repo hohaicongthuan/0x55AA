@@ -28,19 +28,24 @@ RGB[A] to Grey: ```Y ← 0.299 × R + 0.587 × G + 0.114 × B```
 - [x] RGB ⇌ Greyscale Converter
 - [x] Testbench
 
-## 4. Image
+## 4. Circuit Diagram
+![Circuit Diagram](Docs/Schematic.png)
+
+## 5. Image
 The image we use (500 px × 500 px):
 
-![Chess Artwork](src/chess.jpg)
+![Chess Artwork](Datasets/Images/chess.jpg)
 
-## 5. Results
+## 6. Results on Images
 
-![Result from Verilog](src/verilog_out.jpg) | ![Result from Python](src/Python/python_out.jpg) | ![Difference](src/Python/compareimg.png)
+![Result from Verilog](Testbenches/chess.jpg_24.03.2021_22.20.48/verilog_out.jpg) | ![Result from Python](Testbenches/chess.jpg_24.03.2021_22.20.48/python_out.jpg) | ![Difference](Testbenches/chess.jpg_24.03.2021_22.20.48/compareimg.jpg)
 :-:|:-:|:-:
 Result from Verilog | Result from Python | Difference
 
-## 6. How to use?
+## 7. How to use?
 
-Put an input image in the `src` folder and navigate the terminal there. Use the command `./run -i <image_name>` to run.
+Use the command `./run -i <path_to_image_file>` or `./run --image <path_to_image_file>` to run.
+
+For videos, use the command `./run -v <path_to_video_file>` or `./run --video <path_to_video_file>`
 
 Type `./run -h` or `./run --help` for more information on how to use.

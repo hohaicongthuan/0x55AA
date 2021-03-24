@@ -1,0 +1,179 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/hohaicongthuan/GitHub/0x55AA/Assignments/Week2-3/Testbenches/KDA-2.jpeg_24.03.2021_22.21.42
+vColour_Float_To_Int
+Z1 !s110 1616599303
+!i10b 1
+!s100 W4W@FhAWVXe8LQfdMBG`:3
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IKh;UYozZ]Poc8h>D4E^W>2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1616599302
+8Colour_Float_To_Int.v
+FColour_Float_To_Int.v
+!i122 0
+L0 1 14
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1616599303.000000
+!s107 Testbench.v|RGB_Greyscale_Converter.v|REG.v|FP_Mul.v|FP_Add.v|Colour_Int_To_Float.v|Colour_Float_To_Int.v|
+Z7 !s90 -work|work|Colour_Float_To_Int.v|Colour_Int_To_Float.v|FP_Add.v|FP_Mul.v|REG.v|RGB_Greyscale_Converter.v|Testbench.v|
+!i113 1
+Z8 o-work work
+Z9 tCvgOpt 0
+n@colour_@float_@to_@int
+vColour_Int_To_Float
+R1
+!i10b 1
+!s100 ZR[:a]`CD3coRhg`7lJVe1
+R2
+IIP]9jI3E;L8dTF6`nOgDf1
+R3
+R0
+R4
+8Colour_Int_To_Float.v
+FColour_Int_To_Float.v
+!i122 0
+L0 4 266
+R5
+r1
+!s85 0
+31
+R6
+Z10 !s107 Testbench.v|RGB_Greyscale_Converter.v|REG.v|FP_Mul.v|FP_Add.v|Colour_Int_To_Float.v|Colour_Float_To_Int.v|
+R7
+!i113 1
+R8
+R9
+n@colour_@int_@to_@float
+vFP_Add
+R1
+!i10b 1
+!s100 MhB@NiNez8Ya[3R>W;EOb0
+R2
+I0R:BF_m<`?NoohRRRPDa?2
+R3
+R0
+R4
+8FP_Add.v
+FFP_Add.v
+!i122 0
+L0 1 90
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+R9
+n@f@p_@add
+vFP_Mul
+R1
+!i10b 1
+!s100 >M44KOEiP8G=dz^?56ggo2
+R2
+I0G19PhQF3I_Dm]kFDIolR1
+R3
+R0
+R4
+8FP_Mul.v
+FFP_Mul.v
+!i122 0
+L0 1 53
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+R9
+n@f@p_@mul
+vREG
+R1
+!i10b 1
+!s100 kDAS@k_>C];XBSRdE1F3<0
+R2
+I52m9e:]oK?RJC3E8@R2^m1
+R3
+R0
+R4
+8REG.v
+FREG.v
+!i122 0
+L0 1 13
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+R9
+n@r@e@g
+vRGB_Greyscale_Converter
+R1
+!i10b 1
+!s100 BZBVJk9BH3_B`fJE=B_Y>0
+R2
+Ia0<?Mj2MLXWggCB>RDQV61
+R3
+R0
+R4
+8RGB_Greyscale_Converter.v
+FRGB_Greyscale_Converter.v
+!i122 0
+L0 1 82
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+R9
+n@r@g@b_@greyscale_@converter
+vTestbench
+R1
+!i10b 1
+!s100 WaoUfzTABmSQc2LMU4dD32
+R2
+IfHRKViUg?C7MZhj1beDSD3
+R3
+R0
+R4
+8Testbench.v
+FTestbench.v
+!i122 0
+L0 5 47
+R5
+r1
+!s85 0
+31
+R6
+R10
+R7
+!i113 1
+R8
+R9
+n@testbench
