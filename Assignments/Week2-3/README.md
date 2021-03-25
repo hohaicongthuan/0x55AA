@@ -29,7 +29,7 @@ RGB[A] to Grey: ```Y ← 0.299 × R + 0.587 × G + 0.114 × B```
 - [x] Testbench
 
 ## 4. Circuit Diagram
-![Circuit Diagram](Docs/Schematic.png)
+![Circuit Diagram](Docs/Circuit-Diagram.png)
 
 ## 5. Image
 The image we use (500 px × 500 px):
