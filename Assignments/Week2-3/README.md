@@ -38,7 +38,7 @@ The image we use (500 px × 500 px):
 
 ## 6. Results on Images
 
-![Result from Verilog](Testbenches/chess.jpg_24.03.2021_22.20.48/verilog_out.jpg) | ![Result from Python](Testbenches/chess.jpg_24.03.2021_22.20.48/python_out.jpg) | ![Difference](Testbenches/chess.jpg_24.03.2021_22.20.48/compareimg.jpg)
+![Result from Verilog](Docs/verilog_out.jpg) | ![Result from Python](Docs/python_out.jpg) | ![Difference](Docs/compareimg.jpg)
 :-:|:-:|:-:
 Result from Verilog | Result from Python | Difference
 

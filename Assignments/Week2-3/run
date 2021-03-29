@@ -14,6 +14,11 @@ function Image() {
         exit -1
     fi
 
+    # Create a result directory
+    cd Results/
+    mkdir $workingDirectory
+    cd ../
+
     # Create a working directory for simulating both in Verilog and Python
     cd Testbenches/
     mkdir $workingDirectory
@@ -102,6 +107,20 @@ function Image() {
     # Delete file(s) after used
     rm Images_Comparison.py
 
+    #####################################
+    # COPY RESULTS TO RESULTS DIRECTORY #
+    #####################################
+    cp verilog_out.jpg ../../Results/${workingDirectory}/verilog_out.jpg
+    cp python_out.jpg ../../Results/${workingDirectory}/python_out.jpg
+    cp compareimg.jpg ../../Results/${workingDirectory}/compareimg.jpg
+    cp ${fileName} ../../Results/${workingDirectory}/${fileName}
+
+    # Remove result files in Testbench folder
+    rm verilog_out.jpg
+    rm python_out.jpg
+    rm compareimg.jpg
+    rm ${fileName}
+
     exit 0
 }
 
@@ -111,6 +130,11 @@ function Video() {
         echo "File does not exist! Please check the file name again."
         exit -1
     fi
+
+    # Create a result directory
+    cd Results/
+    mkdir $workingDirectory
+    cd ../
 
     # Create a working directory for simulating both in Verilog and Python
     cd Testbenches/
@@ -178,12 +202,30 @@ function Video() {
     # CONVERTING USING PYTHON #
     ###########################
 
-    # echo "Converting using Python..."
-    # python3 convert.py ${input}
-    # echo "Done converting!"
+    # Copy script to working directory
+    cp ../../Scripts/Python/convertvideo/FunctionConvertVideo.py FunctionConvertVideo.py
+
+    echo "Converting using Python..."
+    python3 FunctionConvertVideo.py ${fileName}
+    echo "Done converting!"
+
+    # Delete script after used
+    rm FunctionConvertVideo.py
 
     # echo "Showing images..."
     # python3 compare.py ${input}
+
+    #####################################
+    # COPY RESULTS TO RESULTS DIRECTORY #
+    #####################################
+    cp verilog_out.avi ../../Results/${workingDirectory}/verilog_out.avi
+    cp python_out.avi ../../Results/${workingDirectory}/python_out.avi
+    cp ${fileName} ../../Results/${workingDirectory}/${fileName}
+
+    # Remove result files in Testbench folder
+    rm verilog_out.avi
+    rm python_out.avi
+    rm ${fileName}
 
     exit 0
 }

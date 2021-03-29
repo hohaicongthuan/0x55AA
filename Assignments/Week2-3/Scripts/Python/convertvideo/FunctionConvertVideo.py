@@ -19,7 +19,7 @@ def Grayvideo(r, g, b):
     return int(Gray * 255)
 
 # Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
-out = cv2.VideoWriter('outpy.avi', cv2.VideoWriter_fourcc('M','J','P','G'), 10, (frame_width,frame_height))
+out = cv2.VideoWriter('python_out.avi', cv2.VideoWriter_fourcc('M','J','P','G'), 20, (frame_width,frame_height))
 
 while(True):
   ret, frame = cap.read()
