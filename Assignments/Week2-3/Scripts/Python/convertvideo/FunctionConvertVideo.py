@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
+import sys
 
 # Create a VideoCapture object
-cap = cv2.VideoCapture('homework.mp4')
+cap = cv2.VideoCapture(str(sys.argv[1]))
 
 # Check if camera opened successfully
 if (cap.isOpened() == False): 
@@ -13,9 +14,9 @@ if (cap.isOpened() == False):
 frame_width = int(cap.get(3))
 frame_height = int(cap.get(4))
 
-def Grayvideo(R,G,B):
-    Gray = 0.299*r + 0.587*g + 0.114*b
-    return int(Gray*255)
+def Grayvideo(r, g, b):
+    Gray = 0.299 * r + 0.587 * g + 0.114 * b
+    return int(Gray * 255)
 
 # Define the codec and create VideoWriter object.The output is stored in 'outpy.avi' file.
 out = cv2.VideoWriter('outpy.avi', cv2.VideoWriter_fourcc('M','J','P','G'), 10, (frame_width,frame_height))
@@ -28,20 +29,20 @@ while(True):
     # Convert to grayvideo 
     frame_widths = frame.shape[0]
     frame_heights = frame.shape[1]
-    grey = np.zeros((frame_widths,frame_heights,3),np.uint8)
+    grey = np.zeros((frame_widths, frame_heights, 3), np.uint8)
     
     for i in range(frame_widths):
         for j in range(frame_heights):
-            r = frame[i,j][0]/255.0
-            g = frame[i,j][1]/255.0
-            b = frame[i,j][2]/255.0
+            r = frame[i, j][0] / 255.0
+            g = frame[i, j][1] / 255.0
+            b = frame[i, j][2] / 255.0
         
-            temp = Grayvideo(r,g,b)
+            temp = Grayvideo(r, g, b)
          
-            grey[i,j] = (temp,temp,temp)
+            grey[i,j] = (temp, temp, temp)
    
     # Display the resulting frame    
-    cv2.imshow('frame',grey)
+    cv2.imshow('frame', grey)
         
     # Write the frame into the file 'output.avi'
     out.write(grey)
