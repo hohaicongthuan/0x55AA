@@ -23,6 +23,8 @@ RGB[A] to Grey: ```Y ← 0.299 × R + 0.587 × G + 0.114 × B```
 - [x] Images comparator
 
 ### 3.2. Verilog
+- [x] 8-bit Integer to 32-bit Floating-point Converter
+- [x] 32-bit Floating-point to 8-bit Integer Converter
 - [x] Floating-point adder
 - [x] Floating-point multiplier
 - [x] RGB ⇌ Greyscale Converter
