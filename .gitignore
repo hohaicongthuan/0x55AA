@@ -2,3 +2,9 @@
 Assignments/Week2-3/**/*.bak
 Assignments/**/bitmap.in
 Assignments/**/bitmap.out
+**/*.log
+**/*.fls
+**/*.fdb_latexmk
+**/*.aux
+**/*.toc
+**/*.gz
