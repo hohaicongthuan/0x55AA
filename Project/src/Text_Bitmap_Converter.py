@@ -9,11 +9,13 @@ def Hex_To_Float(x):
 
 # Output file handler
 f = open("bitmap.out", "r")
-f2 = open("bitmap.meta", "r")
+# f2 = open("bitmap.meta", "r")
 
 # Retrieve image's width and height
-img_width = int(f2.readline())
-img_height = int(f2.readline())
+# img_width = int(f2.readline())
+# img_height = int(f2.readline())
+img_width = 100
+img_height = 100
 # print("Width is: ", img_width)
 # print("Height is: ", img_height)
 
@@ -38,4 +40,4 @@ for i in range(img_height):
 # Write image
 cv.imwrite("verilog_out.jpg", blank_image)
 f.close()
-f2.close()
+# f2.close()

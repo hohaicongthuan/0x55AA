@@ -3,12 +3,12 @@
 module Testbench();
     parameter   waittime  = 20;
     parameter   clocktime = 10;
-    parameter   DATAWIDTH = 8;
+    parameter   DATA_WIDTH = 8;
     integer     i, outfile, infile;
 
-    reg     Clk, valid_in;
-    reg     [7:0] data_i;
-    wire    [7:0] data_o;
+    reg     Clk, valid_in, Rst;
+    reg     [DATA_WIDTH - 1:0] data_in;
+    wire    [DATA_WIDTH - 1:0] data_out;
     wire    valid_out;
 
     initial begin
@@ -20,13 +20,16 @@ module Testbench();
         outfile = $fopen("bitmap.out", "w");
         infile  = $fopen("bitmap.in", "r");
 
+        Rst = 1'b0;
+        #waittime;
+        Rst = 1'b1;
+
         // read the contents of the file bitmap.in as hexadecimal values into register "data_i".
-        while (! $feof(infile)) begin       // read until an "end of file" is reached.
-            $fscanf(infile,"%h\n", data_i); // scan each line and get the value as an hexadecimal
+        for (i = 0; i < 10300; i = i + 1) begin
+            $fscanf(infile, "%h\n", data_in); // scan each line and get the value as an hexadecimal
             valid_in = 1'b1;
             #waittime;
-
-            if (valid_out) $fdisplay(outfile, "%h", data_o); else ;
+            if (valid_out) $fdisplay(outfile, "%h", data_out);
         end
         
         #waittime;
@@ -36,11 +39,12 @@ module Testbench();
     end
 
     ConvUnit ConvUnit_Inst0(
-        .Clk(),
-        .data_in(),
-        .data_out(),
-        .valid_in(),
-        .valid_out()
+        .data_in(data_in),
+        .data_out(data_out),
+        .Clk(Clk),
+        .Rst(Rst),
+        .valid_in(valid_in),
+        .valid_out(valid_out)
     );
 
 endmodule

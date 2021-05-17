@@ -14,6 +14,6 @@ module Counter(Clk, Rst, En, Out_Signal);
         end
     end
 
-    assign Out_Signal = (Counter_Mem >= 10000) ? 1'b1 : 1'b0;
+    assign Out_Signal = (Counter_Mem >= 300) ? 1'b1 : 1'b0;
 
 endmodule
