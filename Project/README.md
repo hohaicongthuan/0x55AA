@@ -79,4 +79,8 @@ Num | Class | Num | Class
 
 ### 3.1. Implementation
 
+#### 3.1.1. Convolution Unit for 3 × 3 kernel
+
+![](src/rtl/ConvUnit/Conv_Unit_Diagram-Official.png)
+
 ### 3.2. Results & Conclusion
