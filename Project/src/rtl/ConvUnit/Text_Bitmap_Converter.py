@@ -14,8 +14,8 @@ f = open("bitmap.out", "r")
 # Retrieve image's width and height
 # img_width = int(f2.readline())
 # img_height = int(f2.readline())
-img_width = 100
-img_height = 100
+img_width = 98
+img_height = 98
 # print("Width is: ", img_width)
 # print("Height is: ", img_height)
 

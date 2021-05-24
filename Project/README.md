@@ -83,4 +83,8 @@ Num | Class | Num | Class
 
 ![](src/rtl/ConvUnit/Conv_Unit_Diagram-Official.png)
 
+#### 3.1.2. Maxpool Unit (2 × 2 / 2)
+
+![](src/rtl/Maxpool/Maxpool.png)
+
 ### 3.2. Results & Conclusion

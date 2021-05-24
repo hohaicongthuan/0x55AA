@@ -8,21 +8,21 @@ module ConvUnit(data_in, data_out, Clk, Rst, valid_in, valid_out);
     output  [7:0] data_out;
 
     // Internal wires
-    wire Output_Signal, LineBuff_0_valid_out, LineBuff_1_valid_out;
-    wire [DATA_WIDTH - 1:0] LineBuff_0_Out, LineBuff_1_Out, LineBuff_2_Out,
+    wire LineBuff_0_valid_out, LineBuff_1_valid_out, row_counter_out, column_counter_out;
+    wire [DATA_WIDTH - 1:0] LineBuff_0_Out, LineBuff_1_Out,
                             Pixel_1, Pixel_2, Pixel_3,
                             Pixel_4, Pixel_5, Pixel_6,
                             Pixel_7, Pixel_8, Pixel_9,
                             Pixel_1_Mul, Pixel_2_Mul, Pixel_3_Mul,
                             Pixel_4_Mul, Pixel_5_Mul, Pixel_6_Mul,
                             Pixel_7_Mul, Pixel_8_Mul, Pixel_9_Mul,
-                            Int_2_Float_Out, Float_2_Int_Out,
+                            Int_2_Float_Out,
                             Adder_0_Out, Adder_1_Out, Adder_2_Out,
                             Adder_3_Out, Adder_4_Out, Adder_5_Out,
                             Adder_6_Out, Adder_7_Out, Mult_9_Out,
                             Out_Reg_Out;
 
-    assign valid_out = Output_Signal;
+    assign valid_out = row_counter_out & column_counter_out & !Clk;
 
     Colour_Int_To_Float Int_2_Float(
         .data_i(data_in),
@@ -34,35 +34,31 @@ module ConvUnit(data_in, data_out, Clk, Rst, valid_in, valid_out);
         .data_o(data_out)
     );
 
-    Counter Counter_Inst0(
+    Row_Counter Row_Counter_Inst0(
+        .Clk(Clk),
+        .En(valid_in),
+        .Rst(Rst),
+        .Out_Signal(row_counter_out)
+    );
+    Column_Counter Column_Counter_Inst0(
         .Clk(Clk),
         .Rst(Rst),
         .En(valid_in),
-        .Out_Signal(Output_Signal)
+        .Out_Signal(column_counter_out)
     );
 
     LineBuffer #(.DATA_WIDTH(DATA_WIDTH)) LineBuff_Inst0(
-        .data_in(Int_2_Float_Out),
+        .data_in(Pixel_7),
         .data_out(LineBuff_0_Out),
         .Clk(Clk),
         .valid_in(valid_in),
-        .valid_out(LineBuff_0_valid_out),
         .Rst(Rst)
     );
     LineBuffer #(.DATA_WIDTH(DATA_WIDTH)) LineBuff_Inst1(
-        .data_in(LineBuff_0_Out),
+        .data_in(Pixel_4),
         .data_out(LineBuff_1_Out),
         .Clk(Clk),
-        .valid_in(LineBuff_0_valid_out),
-        .valid_out(LineBuff_1_valid_out),
-        .Rst(Rst)
-    );
-    LineBuffer #(.DATA_WIDTH(DATA_WIDTH)) LineBuff_Inst2(
-        .data_in(LineBuff_1_Out),
-        .data_out(LineBuff_2_Out),
-        .Clk(Clk),
-        .valid_in(LineBuff_1_valid_out),
-        .valid_out(),
+        .valid_in(valid_in),
         .Rst(Rst)
     );
 
@@ -70,63 +66,63 @@ module ConvUnit(data_in, data_out, Clk, Rst, valid_in, valid_out);
         .data_in(Pixel_2),
         .data_out(Pixel_1),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst1(
         .data_in(Pixel_3),
         .data_out(Pixel_2),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst2(
-        .data_in(LineBuff_2_Out),
+        .data_in(LineBuff_1_Out),
         .data_out(Pixel_3),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst3(
         .data_in(Pixel_5),
         .data_out(Pixel_4),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst4(
         .data_in(Pixel_6),
         .data_out(Pixel_5),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst5(
-        .data_in(LineBuff_1_Out),
+        .data_in(LineBuff_0_Out),
         .data_out(Pixel_6),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst6(
         .data_in(Pixel_8),
         .data_out(Pixel_7),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst7(
         .data_in(Pixel_9),
         .data_out(Pixel_8),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Inst8(
-        .data_in(LineBuff_0_Out),
+        .data_in(Int_2_Float_Out),
         .data_out(Pixel_9),
         .Clk(Clk),
-        .En(1'b1),
+        .En(valid_in),
         .Rst(Rst)
     );
 
@@ -221,15 +217,15 @@ module ConvUnit(data_in, data_out, Clk, Rst, valid_in, valid_out);
 
     FP_Mul FP_Mul_Inst9(
         .data_iA(Adder_7_Out),
-        .data_iB(32'h437F0000), // number -1 in 32-bit floating-point format
+        .data_iB(32'h437F0000), // number 255 in 32-bit floating-point format
         .data_o(Mult_9_Out)
     );
 
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Out_Int0(
         .data_in(Mult_9_Out),
         .data_out(Out_Reg_Out),
-        .Clk(Clk),
-        .En(Output_Signal),
+        .Clk(~Clk),
+        .En(row_counter_out & column_counter_out),
         .Rst(Rst)
     );
 
