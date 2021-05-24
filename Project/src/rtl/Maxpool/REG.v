@@ -1,5 +1,5 @@
 module REG(data_in, data_out, Clk, En, Rst);
-    parameter DATA_WIDTH = 32;
+    parameter DATA_WIDTH = 8;
 
     input       Clk, En, Rst;
     input       [DATA_WIDTH - 1:0] data_in;
