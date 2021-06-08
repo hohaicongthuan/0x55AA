@@ -52,6 +52,10 @@ YOLO uses a linear activation function for the final layer and a leaky rectified
 
 **For example,** if we divide the image into a grid of `7 x 7` and each grid cell predicts 2 bounding boxes and we have 20 labelled classes then the output would be `7 x 7 x (2 * 5 + 20) = 7 x 7 x 30` tensors
 
+### Network design of YOLO v3
+
+![](https://res.cloudinary.com/practicaldev/image/fetch/s--5kVLEyT3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zdmk2adlckbnm8k9n0p8.png)
+
 ### Limitations of YOLO
 
 - YOLO imposes strong spatial constraints on bounding box predictions since each grid cell only predicts two boxes and can only have one class and this limits the number of nearby objects that the model can predict
@@ -79,12 +83,34 @@ Num | Class | Num | Class
 
 ### 3.1. Implementation
 
+- [ ] `1.  Conv2D    32 3 x 3 s 1`
+- [ ] `2.  Conv2D    64 3 x 3 s 2`
+- [ ] `3.  Conv2D    32 1 x 1 s 1`
+- [ ] `    Conv2D    64 3 x 3 s 1`
+- [ ] `    Residual`
+- [ ] `4.  Conv2D    128 3 x 3 s 2`
+- [ ] `5. (x2) Conv2D    64 1 x 1 s 1`
+- [ ] `        Conv2D    128 3 x 3 s 1`
+- [ ] `        Residual`
+- [ ] `6.  Conv2D    256 3 x 3 s 2`
+- [ ] `7. (x8) Conv2D    128 1 x 1 s 1`
+- [ ] `        Conv2D    256 3 x 3 s 1`
+- [ ] `        Residual`
+- [ ] `8.  Conv2D    512 3 x 3 s 2`
+- [ ] `9. (x8) Conv2D    256 1 x 1 s 1`
+- [ ] `        Conv2D    512 3 x 3 s 1`
+- [ ] `        Residual`
+- [ ] `10. Conv2D    1024 3 x 3 s 2`
+- [ ] `11. (x4) Conv2D    512 1 x 1 s 1`
+- [ ] `         Conv2D    1024 3 x 3 s 1`
+- [ ] `         Residual`
+
 #### 3.1.1. Convolution Unit for 3 × 3 kernel
 
-![](src/rtl/ConvUnit/Conv_Unit_Diagram-Official.png)
+![](src/rtl/conv2d3x3/Conv_Unit_Diagram-Official.png)
 
 #### 3.1.2. Maxpool Unit (2 × 2 / 2)
 
-![](src/rtl/Maxpool/Maxpool.png)
+![](src/rtl/maxpool2d2x2s2/Maxpool.png)
 
 ### 3.2. Results & Conclusion
