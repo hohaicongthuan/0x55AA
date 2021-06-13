@@ -52,9 +52,13 @@ YOLO uses a linear activation function for the final layer and a leaky rectified
 
 **For example,** if we divide the image into a grid of `7 x 7` and each grid cell predicts 2 bounding boxes and we have 20 labelled classes then the output would be `7 x 7 x (2 * 5 + 20) = 7 x 7 x 30` tensors
 
-### Network design of YOLO v3
+### Network design of YOLO v3 tiny
 
-![](https://res.cloudinary.com/practicaldev/image/fetch/s--5kVLEyT3--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zdmk2adlckbnm8k9n0p8.png)
+![](reference/The-network-structure-of-Tiny-YOLO-V3.png)
+
+![](reference/You-Only-Look-One-v3-tiny-YOLOv3-tiny-network-structure.png)
+
+![](reference/yolov3-tiny-layers.png)
 
 ### Limitations of YOLO
 
@@ -79,33 +83,40 @@ Num | Class | Num | Class
 8 | chair | 18 | train
 9 | cow | 19 | TV monitor
 
+YOLO v3 Tiny is used.
+
 ## 3. Content
 
 ### 3.1. Implementation
 
-- [ ] `1.  Conv2D    32 3 x 3 s 1`
-- [ ] `2.  Conv2D    64 3 x 3 s 2`
-- [ ] `3.  Conv2D    32 1 x 1 s 1`
-- [ ] `    Conv2D    64 3 x 3 s 1`
-- [ ] `    Residual`
-- [ ] `4.  Conv2D    128 3 x 3 s 2`
-- [ ] `5. (x2) Conv2D    64 1 x 1 s 1`
-- [ ] `        Conv2D    128 3 x 3 s 1`
-- [ ] `        Residual`
-- [ ] `6.  Conv2D    256 3 x 3 s 2`
-- [ ] `7. (x8) Conv2D    128 1 x 1 s 1`
-- [ ] `        Conv2D    256 3 x 3 s 1`
-- [ ] `        Residual`
-- [ ] `8.  Conv2D    512 3 x 3 s 2`
-- [ ] `9. (x8) Conv2D    256 1 x 1 s 1`
-- [ ] `        Conv2D    512 3 x 3 s 1`
-- [ ] `        Residual`
-- [ ] `10. Conv2D    1024 3 x 3 s 2`
-- [ ] `11. (x4) Conv2D    512 1 x 1 s 1`
-- [ ] `         Conv2D    1024 3 x 3 s 1`
-- [ ] `         Residual`
+STATUS                                        | LAYER | TYPE        | FILTERS | SIZE/STRIDE
+:--------------------------------------------:|:-----:|:-----------:|:-------:|:-----------:
+<input type="checkbox" disabled />            | 0     | Convolution | 16      | 3x3/1
+<input type="checkbox" disabled checked />    | 1     | Maxpool     |         | 2x2/2
+<input type="checkbox" disabled />    | 2     | Convolution | 32      | 3x3/1
+<input type="checkbox" disabled checked />    | 3     | Maxpool     |         | 2x2/2
+<input type="checkbox" disabled />    | 4     | Convolution | 64      | 3x3/1
+<input type="checkbox" disabled checked />    | 5     | Maxpool     |         | 2x2/2
+<input type="checkbox" disabled />    | 6     | Convolution | 128     | 3x3/1
+<input type="checkbox" disabled checked />    | 7     | Maxpool     |         | 2x2/2
+<input type="checkbox" disabled />    | 8     | Convolution | 256     | 3x3/1
+<input type="checkbox" disabled checked />    | 9     | Maxpool     |         | 2x2/2
+<input type="checkbox" disabled />    | 10    | Convolution | 512     | 3x3/1
+<input type="checkbox" disabled checked />    | 11    | Maxpool     |         | 2x2/2
+<input type="checkbox" disabled />    | 12    | Convolution | 1024    | 3x3/1
+<input type="checkbox" disabled />    | 13    | Convolution | 256     | 1x1/1
+<input type="checkbox" disabled />    | 14    | Convolution | 512     | 3x3/1
+<input type="checkbox" disabled />    | 15    | Convolution | 255     | 1x1/1
+<input type="checkbox" disabled />    | 16    | YOLO        |         |
+<input type="checkbox" disabled />    | 17    | Route 13    |         |
+<input type="checkbox" disabled />    | 18    | Convolution | 128     | 1x1/1
+<input type="checkbox" disabled />    | 19    | Up-sampling |         | 2x2/1
+<input type="checkbox" disabled />    | 20    | Route 19 8  |         |
+<input type="checkbox" disabled />    | 21    | Convolution | 256     | 3x3/1
+<input type="checkbox" disabled />    | 22    | Convolution | 255     | 1x1/1
+<input type="checkbox" disabled />    | 23    | YOLO        |         |
 
-#### 3.1.1. Convolution Unit for 3 × 3 kernel
+#### 3.1.1. Convolution Unit for 3 × 3 kernel with stride = 1
 
 ![](src/rtl/conv2d3x3/Conv_Unit_Diagram-Official.png)
 

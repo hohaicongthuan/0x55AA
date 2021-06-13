@@ -1,4 +1,6 @@
 module Row_Counter(Clk, En, Rst, Out_Signal);
+    parameter IMG_SIZE = 100;
+
     input Clk, En, Rst;
     output Out_Signal;
 
@@ -12,7 +14,7 @@ module Row_Counter(Clk, En, Rst, Out_Signal);
         end else begin
             if (En) begin
                 Counter_Mem <= Counter_Mem + 1;
-                Row_Count <= Counter_Mem / 100;
+                Row_Count <= Counter_Mem / IMG_SIZE;
             end else begin
                 Counter_Mem <= Counter_Mem;
                 Row_Count <= Row_Count;

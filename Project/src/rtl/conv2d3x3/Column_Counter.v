@@ -1,5 +1,6 @@
 module Column_Counter(Clk, Rst, En, Out_Signal);
     parameter DATA_WIDTH = 14;
+    parameter IMG_SIZE = 100;
 
     input  Clk, Rst, En;
     output Out_Signal;
@@ -11,7 +12,7 @@ module Column_Counter(Clk, Rst, En, Out_Signal);
             Counter_Mem <= 0;
         end else begin
             if (En) begin
-                if (Counter_Mem == 100) begin
+                if (Counter_Mem == IMG_SIZE) begin
                     Counter_Mem <= 1;
                 end else begin
                     Counter_Mem <= Counter_Mem + 1;
@@ -22,6 +23,6 @@ module Column_Counter(Clk, Rst, En, Out_Signal);
         end
     end
 
-    assign Out_Signal = (Counter_Mem >= 2 & Counter_Mem <= 99) ? 1'b1 : 1'b0;
+    assign Out_Signal = (Counter_Mem >= 2 & Counter_Mem <= (IMG_SIZE - 1)) ? 1'b1 : 1'b0;
 
 endmodule

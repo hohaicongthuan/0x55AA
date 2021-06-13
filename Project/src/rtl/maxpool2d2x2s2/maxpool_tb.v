@@ -43,7 +43,7 @@ module maxpool_tb();
         #15;
     end
 
-    Maxpool Maxpool_Inst0(
+    Maxpool2D2x2s2 Maxpool2D2x2s2_Inst0(
         .data_in(data_in),
         .data_out(data_out),
         .Clk(Clk),
