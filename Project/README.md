@@ -89,32 +89,32 @@ YOLO v3 Tiny is used.
 
 ### 3.1. Implementation
 
-STATUS                                        | LAYER | TYPE        | FILTERS | SIZE/STRIDE
-:--------------------------------------------:|:-----:|:-----------:|:-------:|:-----------:
-<input type="checkbox" disabled />            | 0     | Convolution | 16      | 3x3/1
-<input type="checkbox" disabled checked />    | 1     | Maxpool     |         | 2x2/2
-<input type="checkbox" disabled />    | 2     | Convolution | 32      | 3x3/1
-<input type="checkbox" disabled checked />    | 3     | Maxpool     |         | 2x2/2
-<input type="checkbox" disabled />    | 4     | Convolution | 64      | 3x3/1
-<input type="checkbox" disabled checked />    | 5     | Maxpool     |         | 2x2/2
-<input type="checkbox" disabled />    | 6     | Convolution | 128     | 3x3/1
-<input type="checkbox" disabled checked />    | 7     | Maxpool     |         | 2x2/2
-<input type="checkbox" disabled />    | 8     | Convolution | 256     | 3x3/1
-<input type="checkbox" disabled checked />    | 9     | Maxpool     |         | 2x2/2
-<input type="checkbox" disabled />    | 10    | Convolution | 512     | 3x3/1
-<input type="checkbox" disabled checked />    | 11    | Maxpool     |         | 2x2/2
-<input type="checkbox" disabled />    | 12    | Convolution | 1024    | 3x3/1
-<input type="checkbox" disabled />    | 13    | Convolution | 256     | 1x1/1
-<input type="checkbox" disabled />    | 14    | Convolution | 512     | 3x3/1
-<input type="checkbox" disabled />    | 15    | Convolution | 255     | 1x1/1
-<input type="checkbox" disabled />    | 16    | YOLO        |         |
-<input type="checkbox" disabled />    | 17    | Route 13    |         |
-<input type="checkbox" disabled />    | 18    | Convolution | 128     | 1x1/1
-<input type="checkbox" disabled />    | 19    | Up-sampling |         | 2x2/1
-<input type="checkbox" disabled />    | 20    | Route 19 8  |         |
-<input type="checkbox" disabled />    | 21    | Convolution | 256     | 3x3/1
-<input type="checkbox" disabled />    | 22    | Convolution | 255     | 1x1/1
-<input type="checkbox" disabled />    | 23    | YOLO        |         |
+STATUS  | LAYER | TYPE        | FILTERS | SIZE/STRIDE
+:------:|:-----:|:-----------:|:-------:|:-----------:
+ONGOING | 0     | Convolution | 16      | 3x3/1
+DONE    | 1     | Maxpool     |         | 2x2/2
+ONGOING | 2     | Convolution | 32      | 3x3/1
+DONE    | 3     | Maxpool     |         | 2x2/2
+ONGOING | 4     | Convolution | 64      | 3x3/1
+DONE    | 5     | Maxpool     |         | 2x2/2
+ONGOING | 6     | Convolution | 128     | 3x3/1
+DONE    | 7     | Maxpool     |         | 2x2/2
+ONGOING | 8     | Convolution | 256     | 3x3/1
+DONE    | 9     | Maxpool     |         | 2x2/2
+ONGOING | 10    | Convolution | 512     | 3x3/1
+DONE    | 11    | Maxpool     |         | 2x2/2
+ONGOING | 12    | Convolution | 1024    | 3x3/1
+ONGOING | 13    | Convolution | 256     | 1x1/1
+ONGOING | 14    | Convolution | 512     | 3x3/1
+ONGOING | 15    | Convolution | 255     | 1x1/1
+ONGOING | 16    | YOLO        |         |
+ONGOING | 17    | Route 13    |         |
+ONGOING | 18    | Convolution | 128     | 1x1/1
+ONGOING | 19    | Up-sampling |         | 2x2/1
+ONGOING | 20    | Route 19 8  |         |
+ONGOING | 21    | Convolution | 256     | 3x3/1
+ONGOING | 22    | Convolution | 255     | 1x1/1
+ONGOING | 23    | YOLO        |         |
 
 #### 3.1.1. Convolution Unit for 3 × 3 kernel with stride = 1
 
