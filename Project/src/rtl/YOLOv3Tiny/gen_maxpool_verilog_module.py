@@ -1,6 +1,3 @@
-from os import write
-
-
 def generate_verilog_module(module_name, input_num, img_size, data_width):
     file_path = module_name + ".v"
     fout = open(file_path, "w")
