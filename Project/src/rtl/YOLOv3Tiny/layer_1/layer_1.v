@@ -8,7 +8,7 @@ module layer_1 (
 	output [DATA_WIDTH - 1:0] data_out,
 	output valid_out
 );
-	parameter DATA_WIDTH = 128;
+	parameter DATA_WIDTH = 512;
 	parameter IMG_SIZE = 416;
 
 	wire	valid_out_0,
@@ -33,9 +33,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst0(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[7:0]),
+	.data_in(data_in[31:0]),
 	.valid_in(valid_in),
-	.data_out(data_out[7:0]),
+	.data_out(data_out[31:0]),
 	.valid_out(valid_out_0)
 );
 
@@ -45,9 +45,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst1(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[15:8]),
+	.data_in(data_in[63:32]),
 	.valid_in(valid_in),
-	.data_out(data_out[15:8]),
+	.data_out(data_out[63:32]),
 	.valid_out(valid_out_1)
 );
 
@@ -57,9 +57,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst2(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[23:16]),
+	.data_in(data_in[95:64]),
 	.valid_in(valid_in),
-	.data_out(data_out[23:16]),
+	.data_out(data_out[95:64]),
 	.valid_out(valid_out_2)
 );
 
@@ -69,9 +69,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst3(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[31:24]),
+	.data_in(data_in[127:96]),
 	.valid_in(valid_in),
-	.data_out(data_out[31:24]),
+	.data_out(data_out[127:96]),
 	.valid_out(valid_out_3)
 );
 
@@ -81,9 +81,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst4(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[39:32]),
+	.data_in(data_in[159:128]),
 	.valid_in(valid_in),
-	.data_out(data_out[39:32]),
+	.data_out(data_out[159:128]),
 	.valid_out(valid_out_4)
 );
 
@@ -93,9 +93,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst5(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[47:40]),
+	.data_in(data_in[191:160]),
 	.valid_in(valid_in),
-	.data_out(data_out[47:40]),
+	.data_out(data_out[191:160]),
 	.valid_out(valid_out_5)
 );
 
@@ -105,9 +105,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst6(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[55:48]),
+	.data_in(data_in[223:192]),
 	.valid_in(valid_in),
-	.data_out(data_out[55:48]),
+	.data_out(data_out[223:192]),
 	.valid_out(valid_out_6)
 );
 
@@ -117,9 +117,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst7(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[63:56]),
+	.data_in(data_in[255:224]),
 	.valid_in(valid_in),
-	.data_out(data_out[63:56]),
+	.data_out(data_out[255:224]),
 	.valid_out(valid_out_7)
 );
 
@@ -129,9 +129,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst8(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[71:64]),
+	.data_in(data_in[287:256]),
 	.valid_in(valid_in),
-	.data_out(data_out[71:64]),
+	.data_out(data_out[287:256]),
 	.valid_out(valid_out_8)
 );
 
@@ -141,9 +141,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst9(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[79:72]),
+	.data_in(data_in[319:288]),
 	.valid_in(valid_in),
-	.data_out(data_out[79:72]),
+	.data_out(data_out[319:288]),
 	.valid_out(valid_out_9)
 );
 
@@ -153,9 +153,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst10(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[87:80]),
+	.data_in(data_in[351:320]),
 	.valid_in(valid_in),
-	.data_out(data_out[87:80]),
+	.data_out(data_out[351:320]),
 	.valid_out(valid_out_10)
 );
 
@@ -165,9 +165,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst11(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[95:88]),
+	.data_in(data_in[383:352]),
 	.valid_in(valid_in),
-	.data_out(data_out[95:88]),
+	.data_out(data_out[383:352]),
 	.valid_out(valid_out_11)
 );
 
@@ -177,9 +177,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst12(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[103:96]),
+	.data_in(data_in[415:384]),
 	.valid_in(valid_in),
-	.data_out(data_out[103:96]),
+	.data_out(data_out[415:384]),
 	.valid_out(valid_out_12)
 );
 
@@ -189,9 +189,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst13(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[111:104]),
+	.data_in(data_in[447:416]),
 	.valid_in(valid_in),
-	.data_out(data_out[111:104]),
+	.data_out(data_out[447:416]),
 	.valid_out(valid_out_13)
 );
 
@@ -201,9 +201,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst14(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[119:112]),
+	.data_in(data_in[479:448]),
 	.valid_in(valid_in),
-	.data_out(data_out[119:112]),
+	.data_out(data_out[479:448]),
 	.valid_out(valid_out_14)
 );
 
@@ -213,9 +213,9 @@ Maxpool2D2x2s2 #(
 Maxpool2D2x2s2_Inst15(
 	.Clk(Clk),
 	.Rst(Rst),
-	.data_in(data_in[127:120]),
+	.data_in(data_in[511:480]),
 	.valid_in(valid_in),
-	.data_out(data_out[127:120]),
+	.data_out(data_out[511:480]),
 	.valid_out(valid_out_15)
 );
 

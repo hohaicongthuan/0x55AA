@@ -15,7 +15,7 @@ def generate_verilog_module(module_name, input_num, img_size, data_width):
         fout.write("\t\tvalid_out_" + str(i + 1) + ",\n")
     fout.write("\t\tvalid_out_" + str(input_num - 1) + ";\n")
 
-    head = 7
+    head = 31
     tail = 0
     for i in range(input_num):
         fout.write("Maxpool2D2x2s2 #(\n")
@@ -28,8 +28,8 @@ def generate_verilog_module(module_name, input_num, img_size, data_width):
         fout.write("\t.valid_in(valid_in),\n")
         fout.write("\t.data_out(data_out[" + str(head) + ":" + str(tail) + "]),\n")
         fout.write("\t.valid_out(valid_out_" + str(i) + ")\n);\n\n")
-        head += 8
-        tail += 8
+        head += 32
+        tail += 32
 
     fout.write("\tassign valid_out = ")
     for i in range(input_num - 1):
@@ -39,9 +39,9 @@ def generate_verilog_module(module_name, input_num, img_size, data_width):
     fout.write("endmodule")
     fout.close()
 
-generate_verilog_module("layer_1", 16, 416, 128)
-generate_verilog_module("layer_3", 32, 208, 32 * 8)
-generate_verilog_module("layer_5", 64, 104, 64 * 8)
-generate_verilog_module("layer_7", 128, 52, 128 * 8)
-generate_verilog_module("layer_9", 256, 26, 256 * 8)
-generate_verilog_module("layer_11", 512, 13, 512 * 8)
+generate_verilog_module("layer_1", 16, 416, 16 * 32)
+generate_verilog_module("layer_3", 32, 208, 32 * 32)
+generate_verilog_module("layer_5", 64, 104, 64 * 32)
+generate_verilog_module("layer_7", 128, 52, 128 * 32)
+generate_verilog_module("layer_9", 256, 26, 256 * 32)
+generate_verilog_module("layer_11", 512, 13, 512 * 32)
