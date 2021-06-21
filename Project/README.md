@@ -91,17 +91,17 @@ YOLO v3 Tiny is used.
 
 STATUS  | LAYER | TYPE        | FILTERS | SIZE/STRIDE
 :------:|:-----:|:-----------:|:-------:|:-----------:
-ONGOING | 0     | Convolution | 16      | 3x3/1
+DONE | 0     | Convolution | 16      | 3x3/1
 DONE    | 1     | Maxpool     |         | 2x2/2
-ONGOING | 2     | Convolution | 32      | 3x3/1
+DONE | 2     | Convolution | 32      | 3x3/1
 DONE    | 3     | Maxpool     |         | 2x2/2
-ONGOING | 4     | Convolution | 64      | 3x3/1
+DONE | 4     | Convolution | 64      | 3x3/1
 DONE    | 5     | Maxpool     |         | 2x2/2
-ONGOING | 6     | Convolution | 128     | 3x3/1
+DONE | 6     | Convolution | 128     | 3x3/1
 DONE    | 7     | Maxpool     |         | 2x2/2
-ONGOING | 8     | Convolution | 256     | 3x3/1
+DONE | 8     | Convolution | 256     | 3x3/1
 DONE    | 9     | Maxpool     |         | 2x2/2
-ONGOING | 10    | Convolution | 512     | 3x3/1
+DONE | 10    | Convolution | 512     | 3x3/1
 DONE    | 11    | Maxpool     |         | 2x2/2
 ONGOING | 12    | Convolution | 1024    | 3x3/1
 ONGOING | 13    | Convolution | 256     | 1x1/1
