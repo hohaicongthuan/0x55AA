@@ -1,5 +1,5 @@
-def generate_verilog_module(module_name, input_num, img_size, data_width):
-    file_path = module_name + ".v"
+def generate_verilog_module(output_dir, module_name, input_num, img_size, data_width):
+    file_path = output_dir + "/" + module_name + ".v"
     fout = open(file_path, "w")
     fout.write("module " + module_name + " (\n")
     fout.write("\tinput Clk,\n\tinput Rst,\n\n")
@@ -39,9 +39,9 @@ def generate_verilog_module(module_name, input_num, img_size, data_width):
     fout.write("endmodule")
     fout.close()
 
-generate_verilog_module("layer_1", 16, 416, 16 * 32)
-generate_verilog_module("layer_3", 32, 208, 32 * 32)
-generate_verilog_module("layer_5", 64, 104, 64 * 32)
-generate_verilog_module("layer_7", 128, 52, 128 * 32)
-generate_verilog_module("layer_9", 256, 26, 256 * 32)
-generate_verilog_module("layer_11", 512, 13, 512 * 32)
+generate_verilog_module("layer_1", "layer_1_top", 16, 416, 16 * 32)
+generate_verilog_module("layer_3", "layer_3_top", 32, 208, 32 * 32)
+generate_verilog_module("layer_5", "layer_5_top", 64, 104, 64 * 32)
+generate_verilog_module("layer_7", "layer_7_top", 128, 52, 128 * 32)
+generate_verilog_module("layer_9", "layer_9_top", 256, 26, 256 * 32)
+generate_verilog_module("layer_11", "layer_11_top", 512, 13, 512 * 32)

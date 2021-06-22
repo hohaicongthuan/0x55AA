@@ -103,9 +103,9 @@ DONE | 8     | Convolution | 256     | 3x3/1
 DONE    | 9     | Maxpool     |         | 2x2/2
 DONE | 10    | Convolution | 512     | 3x3/1
 DONE    | 11    | Maxpool     |         | 2x2/2
-ONGOING | 12    | Convolution | 1024    | 3x3/1
+DONE | 12    | Convolution | 1024    | 3x3/1
 ONGOING | 13    | Convolution | 256     | 1x1/1
-ONGOING | 14    | Convolution | 512     | 3x3/1
+DONE | 14    | Convolution | 512     | 3x3/1
 ONGOING | 15    | Convolution | 255     | 1x1/1
 ONGOING | 16    | YOLO        |         |
 ONGOING | 17    | Route 13    |         |
