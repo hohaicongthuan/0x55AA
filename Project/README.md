@@ -127,6 +127,10 @@ ONGOING | 23    | YOLO        |         |
 ### 3.3. Reference Link:
 
 https://qiita.com/tayutayufk/items/4dba4087e6f06fec338b
+
 https://pjreddie.com/darknet/yolo/
+
 https://github.com/ultralytics/yolov3
+
 https://phamdinhkhanh.github.io/2020/03/10/DarknetGoogleColab.html
+
