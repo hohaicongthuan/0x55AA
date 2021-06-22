@@ -58,8 +58,6 @@ YOLO uses a linear activation function for the final layer and a leaky rectified
 
 ![](reference/You-Only-Look-One-v3-tiny-YOLOv3-tiny-network-structure.png)
 
-![](reference/yolov3-tiny-layers.png)
-
 ### Limitations of YOLO
 
 - YOLO imposes strong spatial constraints on bounding box predictions since each grid cell only predicts two boxes and can only have one class and this limits the number of nearby objects that the model can predict
@@ -126,7 +124,8 @@ ONGOING | 23    | YOLO        |         |
 
 ### 3.2. Results & Conclusion
 
-    3.3. Reference Link:
+### 3.3. Reference Link:
+
 https://qiita.com/tayutayufk/items/4dba4087e6f06fec338b
 https://pjreddie.com/darknet/yolo/
 https://github.com/ultralytics/yolov3
