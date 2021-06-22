@@ -2,3 +2,5 @@ Pascal VOC data 2007
 http://pjreddie.com/media/files/VOCtrainval_06-Nov-2007.tar
 Pascal VOC data 2012
 http://pjreddie.com/media/files/VOCtrainval_11-May-2012.tar
+Pascal VOC Dataset Mirror
+https://pjreddie.com/projects/pascal-voc-dataset-mirror/
