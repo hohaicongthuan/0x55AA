@@ -1,4 +1,4 @@
-module Row_Counter(Clk, En, Rst, Out_Signal);
+module Maxpool_Row_Counter(Clk, En, Rst, Out_Signal);
     parameter IMG_SIZE = 100;
 
     input Clk, En, Rst;

@@ -1,4 +1,4 @@
-module Column_Counter(En, Rst, Out_Signal, Clk);
+module Maxpool_Column_Counter(En, Rst, Out_Signal, Clk);
     parameter DATA_WIDTH = 14;
     
     input En, Rst, Clk;

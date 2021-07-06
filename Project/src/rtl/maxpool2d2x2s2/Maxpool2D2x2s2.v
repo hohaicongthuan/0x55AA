@@ -17,14 +17,14 @@ module Maxpool2D2x2s2(data_in, data_out, Clk, valid_in, valid_out, Rst);
 
     assign valid_out = row_counter_out & column_counter_out & !Clk;
 
-    Row_Counter #(.IMG_SIZE(IMG_SIZE)) Row_Counter_Inst0(
+    Maxpool_Row_Counter #(.IMG_SIZE(IMG_SIZE)) Row_Counter_Inst0(
         .En(valid_in),
         .Rst(Rst),
         .Out_Signal(row_counter_out),
         .Clk(Clk)
     );
 
-    Column_Counter Column_Counter_Inst0(
+    Maxpool_Column_Counter Column_Counter_Inst0(
         .Clk(Clk),
         .En(valid_in),
         .Rst(Rst),
