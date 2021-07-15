@@ -1,14 +1,13 @@
 def generate_verilog_module(output_dir, module_name, input_num, img_size, data_width):
     file_path = output_dir + "/" + module_name + ".v"
     fout = open(file_path, "w")
-    fout.write("module " + module_name + " (\n")
-    fout.write("\tinput Clk,\n\tinput Rst,\n\n")
-    fout.write("\tinput [DATA_WIDTH - 1:0] data_in,\n")
-    fout.write("\tinput valid_in,\n\n")
-    fout.write("\toutput [DATA_WIDTH - 1:0] data_out,\n")
-    fout.write("\toutput valid_out\n")
-    fout.write(");\n\tparameter DATA_WIDTH = " + str(data_width) + ";\n")
+    fout.write("module " + module_name + " (Clk, Rst, data_in, data_out, valid_in, valid_out);\n")
+    fout.write("\tparameter DATA_WIDTH = " + str(data_width) + ";\n")
     fout.write("\tparameter IMG_SIZE = "+ str(img_size) +";\n")
+    fout.write("\tinput Clk, Rst, valid_in;\n")
+    fout.write("\tinput [DATA_WIDTH - 1:0] data_in;\n")
+    fout.write("\toutput [DATA_WIDTH - 1:0] data_out;\n")
+    fout.write("\toutput valid_out;\n")
 
     fout.write("\n\twire\tvalid_out_0,\n")
     for i in range(input_num - 2):
@@ -27,7 +26,7 @@ def generate_verilog_module(output_dir, module_name, input_num, img_size, data_w
         fout.write("\t.data_in(data_in[" + str(head) + ":" + str(tail) + "]),\n")
         fout.write("\t.valid_in(valid_in),\n")
         fout.write("\t.data_out(data_out[" + str(head) + ":" + str(tail) + "]),\n")
-        fout.write("\t.valid_out(valid_out_" + str(i) + ")\n);\n\n")
+        fout.write("\t.valid_out(valid_out_" + str(i) + ")\n);\n")
         head += 32
         tail += 32
 

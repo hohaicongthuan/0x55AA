@@ -1,7 +1,7 @@
 module Row_Counter(Clk, En, Rst, Out_Signal);
     parameter IMG_SIZE = 100;
-    parameter COUNTER_MEM_WIDTH = 15;
-    parameter ROW_COUNT_WIDTH = 7;
+    parameter COUNTER_MEM_WIDTH = 32;
+    parameter ROW_COUNT_WIDTH = 16;
     
     input Clk, En, Rst;
     output Out_Signal;
@@ -15,8 +15,12 @@ module Row_Counter(Clk, En, Rst, Out_Signal);
             Row_Count <= 0;
         end else begin
             if (En) begin
-                Counter_Mem <= Counter_Mem + 1;
-                Row_Count <= Counter_Mem / IMG_SIZE;
+                if (Counter_Mem == IMG_SIZE) begin
+                    Counter_Mem <= 0;
+                    Row_Count <= Row_Count + 1;
+                end else begin
+                    Counter_Mem <= Counter_Mem + 1;
+                end
             end else begin
                 Counter_Mem <= Counter_Mem;
                 Row_Count <= Row_Count;

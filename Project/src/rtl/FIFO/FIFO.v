@@ -1,5 +1,5 @@
 module FIFO(data_in, data_out, Clk, Enqueue, Dequeue, Rst_N, Full, Empty);
-    parameter DATA_WIDTH 	= 24;
+    parameter DATA_WIDTH 	= 32;
 	parameter FIFO_DEPTH 	= 1024; // = 2^10
 	parameter FIFO_ADDR 	= 11;
 	 

@@ -3,12 +3,11 @@
 module conv_tb();
     parameter   waittime  = 20;
     parameter   clocktime = 10;
-    parameter   DATA_WIDTH = 8;
     integer     i, outfile, infile;
 
     reg     Clk, valid_in, Rst;
-    reg     [DATA_WIDTH - 1:0] data_in;
-    wire    [DATA_WIDTH - 1:0] data_out;
+    reg     [31:0] data_in;
+    wire    [31:0] data_out;
     wire    valid_out;
 
     initial begin
@@ -28,26 +27,21 @@ module conv_tb();
 
         while (! $feof(infile)) begin
             $fscanf(infile, "%h\n", data_in); // scan each line and get the value as an hexadecimal
+            i = i + 1;
             valid_in = 1'b1;
             #waittime;
+            if (valid_out) $fdisplay(outfile, "%h", data_out);
         end
-        
+        #waittime;
         $fclose(outfile);
         #waittime;
         $finish;
     end
 
-    always @ (valid_out) begin
-        $fdisplay(outfile, "%h", data_out);
-        i = i + 1;
-        #15;
-    end
-
-    ConvUnit ConvUnit_DUT_Inst0(
+    Conv2D3x3 #(.IMG_SIZE(416)) Conv2D3x3_Inst0(
         .data_in(data_in),
         .data_out(data_out),
-        .Clk(Clk),
-        .Rst(Rst),
+        .Clk(Clk), .Rst(Rst),
         .valid_in(valid_in),
         .valid_out(valid_out)
     );

@@ -30,9 +30,9 @@ module Conv2D3x3(data_in, data_out, Clk, Rst, valid_in, valid_out);
                             Pixel_7_Mul, Pixel_8_Mul, Pixel_9_Mul,
                             Adder_0_Out, Adder_1_Out, Adder_2_Out,
                             Adder_3_Out, Adder_4_Out, Adder_5_Out,
-                            Adder_6_Out, Adder_7_Out, Mult_9_Out;
+                            Adder_6_Out, Adder_7_Out;
 
-    assign valid_out = row_counter_out & column_counter_out & !Clk;
+    assign valid_out = row_counter_out & column_counter_out;
 
     Row_Counter #(.IMG_SIZE(IMG_SIZE)) Row_Counter_Inst0(
         .Clk(Clk),
@@ -215,14 +215,8 @@ module Conv2D3x3(data_in, data_out, Clk, Rst, valid_in, valid_out);
         .b_original(Pixel_9_Mul)
     );
 
-    FP_Mul FP_Mul_Inst9(
-        .data_iA(Adder_7_Out),
-        .data_iB(32'h437F0000), // number 255 in 32-bit floating-point format
-        .data_o(Mult_9_Out)
-    );
-
     REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Out_Int0(
-        .data_in(Mult_9_Out),
+        .data_in(Adder_7_Out),
         .data_out(data_out),
         .Clk(~Clk),
         .En(row_counter_out & column_counter_out),
