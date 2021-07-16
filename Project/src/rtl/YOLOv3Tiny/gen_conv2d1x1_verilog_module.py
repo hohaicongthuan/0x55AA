@@ -3,6 +3,7 @@ import h5py
 import sys
 import numpy as np
 import struct
+import os
 
 np.set_printoptions(threshold=sys.maxsize)
 
@@ -164,15 +165,27 @@ def generate_verilog_module(key, output_dir, module_name, img_size, data_in_widt
 print("Reading weight file...", sep="", end="")
 f = h5py.File("yolov3-tiny.backup.h5", "r")
 print("DONE")
+
+if (os.path.isdir("layer_13") == False):
+    os.mkdir("layer_13")
 print("Generating verilog module for layer_13...", sep="", end="")
 generate_verilog_module("conv2d_7", "layer_13", "layer_13_featuremap", 13, 1024 * 32, 256 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_15") == False):
+    os.mkdir("layer_15")
 print("Generating verilog module for layer_15...", sep="", end="")
 generate_verilog_module("conv2d_9", "layer_15", "layer_15_featuremap", 13, 512 * 32, 255 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_16") == False):
+    os.mkdir("layer_16")
 print("Generating verilog module for layer_16...", sep="", end="")
 generate_verilog_module("conv2d_10", "layer_16", "layer_16_featuremap", 13, 256 * 32, 128 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_19") == False):
+    os.mkdir("layer_19")
 print("Generating verilog module for layer_19...", sep="", end="")
 generate_verilog_module("conv2d_12", "layer_19", "layer_19_featuremap", 13, 256 * 32, 255 * 32)
 print("DONE")

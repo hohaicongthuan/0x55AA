@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check the existence of "temp" directory
+if [ ! -d "temp" ]
+then
+    mkdir temp
+fi
+
 #########################################################################################################
 # SOURCE: https://superuser.com/questions/523099/linux-copy-all-files-by-extension-to-single-dirrectory #
 #########################################################################################################
@@ -7,6 +13,8 @@
 echo "Copying files to temp folder..."
 find ./src/rtl -type d \( -path ./src/rtl/YOLOv3Tiny/layer_16 -o -path ./src/rtl/YOLOv3Tiny/layer_17 -o -path ./src/rtl/YOLOv3Tiny/layer_18 -o -path ./src/rtl/YOLOv3Tiny/layer_19 -o -path ./src/rtl/upsampling2d2x2 \) -prune -false -o -name "*.v" -exec cp {} temp \;
 echo "Done copying!"
+
+cd temp/
 
 echo "Simulating using ModelSim..."
 # -c option forces vsim to run in command-line mode (no GUI)

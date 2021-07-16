@@ -3,6 +3,7 @@ import h5py
 import sys
 import numpy as np
 import struct
+import os
 
 np.set_printoptions(threshold=sys.maxsize)
 
@@ -152,30 +153,57 @@ def generate_verilog_module(key, output_dir, module_name, img_size, data_in_widt
 print("Reading weight file...", sep="", end="")
 f = h5py.File("yolov3-tiny.backup.h5", "r")
 print("DONE")
+
+if (os.path.isdir("layer_0") == False):
+    os.mkdir("layer_0")
 print("Generating verilog module for layer_0...", sep="", end="")
 generate_verilog_module("conv2d", "layer_0", "layer_0_featuremap", 416, 3 * 32, 16 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_2") == False):
+    os.mkdir("layer_2")
 print("Generating verilog module for layer_2...", sep="", end="")
 generate_verilog_module("conv2d_1", "layer_2", "layer_2_featuremap", 208, 16 * 32, 32 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_4") == False):
+    os.mkdir("layer_4")
 print("Generating verilog module for layer_4...", sep="", end="")
 generate_verilog_module("conv2d_2", "layer_4", "layer_4_featuremap", 104, 32 * 32, 64 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_6") == False):
+    os.mkdir("layer_6")
 print("Generating verilog module for layer_6...", sep="", end="")
 generate_verilog_module("conv2d_3", "layer_6", "layer_6_featuremap", 52, 64 * 32, 128 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_8") == False):
+    os.mkdir("layer_8")
 print("Generating verilog module for layer_8...", sep="", end="")
 generate_verilog_module("conv2d_4", "layer_8", "layer_8_featuremap", 26, 128 * 32, 256 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_10") == False):
+    os.mkdir("layer_10")
 print("Generating verilog module for layer_10...", sep="", end="")
 generate_verilog_module("conv2d_5", "layer_10", "layer_10_featuremap", 13, 256 * 32, 512 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_12") == False):
+    os.mkdir("layer_12")
 print("Generating verilog module for layer_12...", sep="", end="")
 generate_verilog_module("conv2d_6", "layer_12", "layer_12_featuremap", 13, 512 * 32, 1024 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_14") == False):
+    os.mkdir("layer_14")
 print("Generating verilog module for layer_14...", sep="", end="")
 generate_verilog_module("conv2d_8", "layer_14", "layer_14_featuremap", 13, 256 * 32, 512 * 32)
 print("DONE")
+
+if (os.path.isdir("layer_18") == False):
+    os.mkdir("layer_18")
 print("Generating verilog module for layer_18...", sep="", end="")
 generate_verilog_module("conv2d_11", "layer_18", "layer_18_featuremap", 13, 256 * 32, 512 * 32)
 print("DONE")

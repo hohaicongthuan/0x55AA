@@ -1,3 +1,5 @@
+import os
+
 def generate_verilog_module(output_dir, module_name, input_num, img_size, data_width):
     file_path = output_dir + "/" + module_name + ".v"
     fout = open(file_path, "w")
@@ -38,9 +40,26 @@ def generate_verilog_module(output_dir, module_name, input_num, img_size, data_w
     fout.write("endmodule")
     fout.close()
 
+if (os.path.isdir("layer_1") == False):
+    os.mkdir("layer_1")
 generate_verilog_module("layer_1", "layer_1_top", 16, 416, 16 * 32)
+
+if (os.path.isdir("layer_3") == False):
+    os.mkdir("layer_3")
 generate_verilog_module("layer_3", "layer_3_top", 32, 208, 32 * 32)
+
+if (os.path.isdir("layer_5") == False):
+    os.mkdir("layer_5")
 generate_verilog_module("layer_5", "layer_5_top", 64, 104, 64 * 32)
+
+if (os.path.isdir("layer_7") == False):
+    os.mkdir("layer_7")
 generate_verilog_module("layer_7", "layer_7_top", 128, 52, 128 * 32)
+
+if (os.path.isdir("layer_9") == False):
+    os.mkdir("layer_9")
 generate_verilog_module("layer_9", "layer_9_top", 256, 26, 256 * 32)
+
+if (os.path.isdir("layer_11") == False):
+    os.mkdir("layer_11")
 generate_verilog_module("layer_11", "layer_11_top", 512, 13, 512 * 32)
