@@ -15,7 +15,7 @@ module Maxpool2D2x2s2(data_in, data_out, Clk, valid_in, valid_out, Rst);
                             pixel_2_out, pixel_3_out,
                             linebuff_out;
 
-    assign valid_out = row_counter_out & column_counter_out & !Clk;
+    assign valid_out = row_counter_out & column_counter_out;
 
     Maxpool_Row_Counter #(.IMG_SIZE(IMG_SIZE)) Row_Counter_Inst0(
         .En(valid_in),

@@ -9,6 +9,8 @@
 **/*.toc
 **/*.gz
 **/*.h5
+**/*.out
+**/*.in
 Project/src/rtl/YOLOv3Tiny/layer_0
 Project/src/rtl/YOLOv3Tiny/layer_1
 Project/src/rtl/YOLOv3Tiny/layer_2
@@ -34,3 +36,4 @@ Project/src/rtl/YOLOv3Tiny/layer_21
 Project/src/rtl/YOLOv3Tiny/layer_22
 Project/src/rtl/YOLOv3Tiny/layer_23
 Project/temp
+*.expected

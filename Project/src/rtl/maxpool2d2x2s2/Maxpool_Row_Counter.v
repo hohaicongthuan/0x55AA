@@ -1,11 +1,11 @@
 module Maxpool_Row_Counter(Clk, En, Rst, Out_Signal);
-    parameter IMG_SIZE = 100;
+    parameter IMG_SIZE = 416;
 
     input Clk, En, Rst;
     output Out_Signal;
 
-    reg [14:0] Counter_Mem;
-    reg [6:0] Row_Count;
+    reg [31:0] Counter_Mem;
+    reg [9:0] Row_Count;
 
     always @ (posedge Clk or negedge Rst) begin
         if (!Rst) begin
@@ -13,7 +13,7 @@ module Maxpool_Row_Counter(Clk, En, Rst, Out_Signal);
             Row_Count <= 0;
         end else begin
             if (En) begin
-                Counter_Mem <= Counter_Mem + 1;
+                Counter_Mem <= Counter_Mem + 32'd1;
                 Row_Count <= Counter_Mem / IMG_SIZE;
             end else begin
                 Counter_Mem <= Counter_Mem;

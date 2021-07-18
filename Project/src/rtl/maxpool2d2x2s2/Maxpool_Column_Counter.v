@@ -1,5 +1,5 @@
 module Maxpool_Column_Counter(En, Rst, Out_Signal, Clk);
-    parameter DATA_WIDTH = 14;
+    parameter DATA_WIDTH = 32;
     
     input En, Rst, Clk;
     output Out_Signal;
@@ -12,7 +12,7 @@ module Maxpool_Column_Counter(En, Rst, Out_Signal, Clk);
         end
         else begin
             if (En) begin
-                Counter_Mem <= Counter_Mem + 14'd1;
+                Counter_Mem <= Counter_Mem + 32'd1;
             end else begin
                 Counter_Mem <= Counter_Mem;
             end

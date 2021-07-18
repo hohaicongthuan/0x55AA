@@ -3,7 +3,7 @@
 module maxpool_tb();
     parameter   waittime  = 20;
     parameter   clocktime = 10;
-    parameter   DATA_WIDTH = 8;
+    parameter   DATA_WIDTH = 32;
     integer     i, outfile, infile;
 
     reg     Clk, valid_in, Rst;
@@ -30,6 +30,7 @@ module maxpool_tb();
             $fscanf(infile, "%h\n", data_in); // scan each line and get the value as an hexadecimal
             valid_in = 1'b1;
             #waittime;
+            if (valid_out) $fdisplay(outfile, "%h", data_out);
         end
         
         $fclose(outfile);
@@ -37,13 +38,13 @@ module maxpool_tb();
         $finish;
     end
 
-    always @ (valid_out) begin
-        $fdisplay(outfile, "%h", data_out);
-        i = i + 1;
-        #15;
-    end
+    // always @ (valid_out) begin
+    //     $fdisplay(outfile, "%h", data_out);
+    //     i = i + 1;
+    //     #15;
+    // end
 
-    Maxpool2D2x2s2 Maxpool2D2x2s2_Inst0(
+    Maxpool2D2x2s2 #(.IMG_SIZE(416)) Maxpool2D2x2s2_Inst0(
         .data_in(data_in),
         .data_out(data_out),
         .Clk(Clk),
