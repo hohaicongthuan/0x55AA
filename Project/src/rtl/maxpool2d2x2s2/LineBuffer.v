@@ -1,6 +1,6 @@
 module LineBuffer(data_in, data_out, Clk, valid_in, Rst);
-    parameter DATA_WIDTH = 8;
-    parameter BUFFER_DEPTH = 98;
+    parameter DATA_WIDTH = 32;
+    parameter BUFFER_DEPTH = 414;
     integer i;
 
     input  Clk, valid_in, Rst;

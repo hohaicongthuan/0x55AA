@@ -25,7 +25,7 @@ for i in range(208):
             max = img[column][row + 1][0] / 255.0
         if ((img[column + 1][row + 1][0] / 255.0) > max):
             max = img[column + 1][row + 1][0] / 255.0
-        # print(max)
+        print(max)
         python_result.append(max)
         column +=2
     row += 2    

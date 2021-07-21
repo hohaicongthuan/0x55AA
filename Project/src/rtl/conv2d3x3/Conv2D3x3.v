@@ -215,12 +215,14 @@ module Conv2D3x3(data_in, data_out, Clk, Rst, valid_in, valid_out);
         .b_original(Pixel_9_Mul)
     );
 
-    REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Out_Int0(
-        .data_in(Adder_7_Out),
-        .data_out(data_out),
-        .Clk(~Clk),
-        .En(row_counter_out & column_counter_out),
-        .Rst(Rst)
-    );
+    assign data_out = (row_counter_out & column_counter_out) ? Adder_7_Out : 32'dz;
+
+    // REG #(.DATA_WIDTH(DATA_WIDTH)) REG_Out_Int0(
+    //     .data_in(Adder_7_Out),
+    //     .data_out(data_out),
+    //     .Clk(~Clk),
+    //     .En(row_counter_out & column_counter_out),
+    //     .Rst(Rst)
+    // );
 
 endmodule

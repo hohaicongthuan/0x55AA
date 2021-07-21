@@ -8,12 +8,14 @@ def Hex_To_Float(x):
     return struct.unpack('!f', bytes.fromhex(x))[0]
 
 # Output file handler
-f = open("bitmap.out", "r")
-f2 = open("bitmap.meta", "r")
+f = open("Maxpool_bitmap.out", "r")
+# f2 = open("bitmap.meta", "r")
 
 # Retrieve image's width and height
-img_width = int(f2.readline())
-img_height = int(f2.readline())
+img_width = 208
+img_height = 208
+# img_width = int(f2.readline())
+# img_height = int(f2.readline())
 # print("Width is: ", img_width)
 # print("Height is: ", img_height)
 
@@ -24,7 +26,7 @@ blank_image = np.zeros((img_width, img_height, 3), np.uint8)
 pixels = []
 
 for x in f:
-    pixels.append(int(x, 16))
+    pixels.append(Hex_To_Float(x)*255)
 
 i = 0
 j = 0
@@ -38,4 +40,4 @@ for i in range(img_height):
 # Write image
 cv.imwrite("verilog_out.jpg", blank_image)
 f.close()
-f2.close()
+# f2.close()

@@ -1,7 +1,7 @@
 // Maxpool 2 x 2 with stride 2
 module Maxpool2D2x2s2(data_in, data_out, Clk, valid_in, valid_out, Rst);
     parameter DATA_WIDTH = 32;
-    parameter IMG_SIZE = 100;
+    parameter IMG_SIZE = 416;
 
     input   Clk, Rst, valid_in;
     input   [DATA_WIDTH - 1:0] data_in;
@@ -24,7 +24,7 @@ module Maxpool2D2x2s2(data_in, data_out, Clk, valid_in, valid_out, Rst);
         .Clk(Clk)
     );
 
-    Maxpool_Column_Counter Column_Counter_Inst0(
+    Maxpool_Column_Counter #(.IMG_SIZE(IMG_SIZE)) Column_Counter_Inst0(
         .Clk(Clk),
         .En(valid_in),
         .Rst(Rst),
@@ -84,11 +84,13 @@ module Maxpool2D2x2s2(data_in, data_out, Clk, valid_in, valid_out, Rst);
         .out(max_2_out)
     );
 
-    REG #(.DATA_WIDTH(DATA_WIDTH)) REG_OUT_Inst0(
-        .data_in(max_2_out),
-        .data_out(data_out),
-        .Clk(~Clk),
-        .En(row_counter_out & column_counter_out),
-        .Rst(Rst)
-    );
+    assign data_out = (row_counter_out & column_counter_out) ? max_2_out : 32'dz;
+
+    // REG #(.DATA_WIDTH(DATA_WIDTH)) REG_OUT_Inst0(
+    //     .data_in(max_2_out),
+    //     .data_out(data_out),
+    //     .Clk(~Clk),
+    //     .En(row_counter_out & column_counter_out),
+    //     .Rst(Rst)
+    // );
 endmodule
