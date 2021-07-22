@@ -8,12 +8,12 @@ def Hex_To_Float(x):
     return struct.unpack('!f', bytes.fromhex(x))[0]
 
 # Output file handler
-f = open("Maxpool_bitmap.out", "r")
+f = open("bitmap_upsampled.out", "r")
 # f2 = open("bitmap.meta", "r")
 
 # Retrieve image's width and height
-img_width = 208
-img_height = 208
+img_width = 832
+img_height = 832
 # img_width = int(f2.readline())
 # img_height = int(f2.readline())
 # print("Width is: ", img_width)

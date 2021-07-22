@@ -112,13 +112,15 @@ ONGOING | 19    | Convolution | 255     | 1x1/1
 
 #### 3.1.1. Convolution Unit for 3 × 3 kernel with stride = 1
 
-![](src/rtl/conv2d3x3/Conv_Unit_Diagram-Official.png)
+![](reference/diagrams/Conv_Unit_Diagram-Official.png)
 
 #### 3.1.2. Maxpool Unit (2 × 2 / 2)
 
-![](src/rtl/maxpool2d2x2s2/Maxpool.png)
+![](reference/diagrams/Maxpool.png)
 
 ### 3.2. Results & Conclusion
+
+TODO.
 
 ### 3.3. Reference Link:
 
