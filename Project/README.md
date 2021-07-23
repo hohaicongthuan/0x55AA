@@ -102,13 +102,13 @@ DONE    | 9     | Maxpool     |         | 2x2/2
 DONE | 10    | Convolution | 512     | 3x3/1
 DONE    | 11    | Maxpool     |         | 2x2/2
 DONE | 12    | Convolution | 1024    | 3x3/1
-ONGOING | 13    | Convolution | 256     | 1x1/1
+DONE | 13    | Convolution | 256     | 1x1/1
 DONE | 14    | Convolution | 512     | 3x3/1
-ONGOING | 15    | Convolution | 255     | 1x1/1
-ONGOING | 16    | Convolution | 128     | 1x1/1
-ONGOING | 17    | Up-sampling |         | 2x2/1
-ONGOING | 18    | Convolution | 256     | 3x3/1
-ONGOING | 19    | Convolution | 255     | 1x1/1
+DONE | 15    | Convolution | 255     | 1x1/1
+DONE | 16    | Convolution | 128     | 1x1/1
+FAILED | 17    | Up-sampling |         | 2x2/1
+DONE | 18    | Convolution | 256     | 3x3/1
+DONE | 19    | Convolution | 255     | 1x1/1
 
 #### 3.1.1. Convolution Unit for 3 × 3 kernel with stride = 1
 
